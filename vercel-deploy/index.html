@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Elisabetta — Wedding Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Jost:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<script>
+// --- Tweakable defaults. Host rewrites this block on disk. ---
+window.TWEAKS = /*EDITMODE-BEGIN*/{
+  "variant": "editoriale",
+  "accent": "rust",
+  "heroLayout": "split",
+  "showCursor": false,
+  "wordmark": "Elisabetta"
+}/*EDITMODE-END*/;
+</script>
+
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+  /* page-specific overrides */
+</style>
+<template id="__bundler_thumbnail" data-bg-color="#f4ede4">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#f4ede4"/>
+    <text x="600" y="430" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="220" fill="#2b2119">E</text>
+    <text x="600" y="540" text-anchor="middle" font-family="monospace" font-size="22" letter-spacing="6" fill="#b4593a">WEDDING STUDIO</text>
+  </svg>
+</template>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#top" class="nav__mark" data-hover>
+    <span id="wordmark">Elisabetta</span><sup>Wedding Planner · Est. 2014</sup>
+  </a>
+  <ul class="nav__links">
+    <li><a href="portfolio.html" data-hover>Weddings</a></li>
+    <li><a href="location.html" data-hover>Venues</a></li>
+    <li><a href="servizi.html" data-hover>Approach</a></li>
+    <li><a href="about.html" data-hover>Studio</a></li>
+    <li><a href="contatti.html" data-hover>Contact</a></li>
+  </ul>
+  <a href="contatti.html" class="nav__cta" data-hover>Enquire now</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero__scroll">Scroll · 01 — 07</div>
+
+  <div class="hero__left">
+    <div class="hero__meta">
+      <span class="mono">N°001 — Portfolio</span>
+      <span class="mono">Since 2014</span>
+      <span class="mono">Italy · Europe</span>
+    </div>
+    <h1 class="hero__title">
+      <span>Weddings</span>
+      <span class="l2"><em>worth</em></span>
+      <span class="l3">remembering.</span>
+    </h1>
+    <p class="hero__sub">
+      A bespoke wedding design studio working across Tuscany, Puglia and the Amalfi Coast. 
+      I shape each celebration the way you'd write a story — with rhythm, intention, and details that linger.
+    </p>
+
+  </div>
+
+  <div class="hero__right">
+    <div class="hero__img"></div>
+    <div class="hero__badge">
+      <svg viewBox="0 0 100 100">
+        <defs>
+          <path id="circle" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
+        </defs>
+        <text fill="#2b2119" font-family="JetBrains Mono" font-size="7.5" letter-spacing="2">
+          <textPath href="#circle">ELISABETTA · STUDIO · ELISABETTA · STUDIO · </textPath>
+        </text>
+      </svg>
+      <span>Since<br/>2014</span>
+    </div>
+  </div>
+
+  <div class="hero__foot">
+    <div class="hero__stat">
+      <span class="mono" style="color:var(--ink-mute)">— Weddings designed</span>
+      <b>148<em style="font-family:var(--ff-italic); color:var(--rust); font-size:16px; margin-left:4px;">events</em></b>
+    </div>
+    <div class="hero__stat">
+      <span class="mono" style="color:var(--ink-mute)">— Venues</span>
+      <b>32<em style="font-family:var(--ff-italic); color:var(--rust); font-size:16px; margin-left:4px;">estates</em></b>
+    </div>
+    <div class="hero__stat">
+      <span class="mono" style="color:var(--ink-mute)">— Years</span>
+      <b>12<em style="font-family:var(--ff-italic); color:var(--rust); font-size:16px; margin-left:4px;">of practice</em></b>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee__track">
+    <span>Tuscany <i>✦</i> Puglia <i>✦</i> Amalfi Coast <i>✦</i> <em>Lake Como</em> <i>✦</i> Sicily <i>✦</i> Umbria <i>✦</i> Dolomites <i>✦</i> <em>Rome</em> <i>✦</i></span>
+    <span>Tuscany <i>✦</i> Puglia <i>✦</i> Amalfi Coast <i>✦</i> <em>Lake Como</em> <i>✦</i> Sicily <i>✦</i> Umbria <i>✦</i> Dolomites <i>✦</i> <em>Rome</em> <i>✦</i></span>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="intro reveal">
+  <div class="intro__label eyebrow">N°002 — Manifesto</div>
+  <div>
+    <p class="intro__body">
+      I believe in weddings with <em>a soul</em>. 
+      Not staging, not trends: moments that look like the people 
+      living them — the way they hold hands, the quiet before 
+      the vows, the <em>scent of seasonal flowers</em> at the table.
+    </p>
+    <p class="intro__sig">— Elisabetta</p>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio reveal" id="portfolio">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">N°003 — Portfolio</div>
+      <h2 style="margin-top:16px;">Recent <em>celebrations</em></h2>
+    </div>
+    <div class="mono" style="color: var(--ink-mute);">2023 / 2026 — 05 of 148</div>
+  </div>
+
+  <div class="portfolio__grid">
+    <article class="event event--a" data-hover>
+      <div class="event__img">
+        <div class="event__caption"><span>N°087</span><span>View →</span></div>
+      </div>
+      <div class="event__info">
+        <h3>Sofia &amp; Lorenzo <em>— Val d'Orcia</em></h3>
+        <span>August 2025 · 180 guests</span>
+      </div>
+    </article>
+
+    <article class="event event--b" data-hover>
+      <div class="event__img">
+        <div class="event__caption"><span>N°091</span><span>View →</span></div>
+      </div>
+      <div class="event__info">
+        <h3>Chiara &amp; James <em>— Borgo Pienza</em></h3>
+        <span>September 2025 · 90 guests</span>
+      </div>
+    </article>
+
+    <article class="event event--c" data-hover>
+      <div class="event__img">
+        <div class="event__caption"><span>N°076</span><span>View →</span></div>
+      </div>
+      <div class="event__info">
+        <h3>Giulia &amp; Matteo</h3>
+        <span>Jun 2024 · Puglia</span>
+      </div>
+    </article>
+
+    <article class="event event--d" data-hover>
+      <div class="event__img">
+        <div class="event__caption"><span>N°081</span><span>View →</span></div>
+      </div>
+      <div class="event__info">
+        <h3>Anna &amp; Tom <em>— Ravello</em></h3>
+        <span>May 2024 · 60 guests</span>
+      </div>
+    </article>
+
+    <article class="event event--e" data-hover>
+      <div class="event__img">
+        <div class="event__caption"><span>N°093</span><span>View →</span></div>
+      </div>
+      <div class="event__info">
+        <h3>Beatrice &amp; Nico</h3>
+        <span>Oct 2025 · Como</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section class="locations reveal" id="locations">
+  <div class="locations__head">
+    <div>
+      <div class="eyebrow">N°004 — Selected venues</div>
+      <h2 style="margin-top:24px;">Places that <em>tell stories</em>.</h2>
+    </div>
+    <p>A small collection of estates, villas and country houses I work with regularly — every love story finds the right frame.</p>
+  </div>
+
+  <div class="locations__list">
+    <div class="loc loc--1" data-hover>
+      <span class="loc__num">/ 01</span>
+      <h3 class="loc__name">Villa <em>Cetinale</em></h3>
+      <p class="loc__desc">A 17th-century estate with formal Italian gardens overlooking the Sienese hills.</p>
+      <span class="loc__tag">Tuscany — Siena</span>
+      <span class="loc__arrow">→</span>
+      <div class="loc__preview"></div>
+    </div>
+    <div class="loc loc--2" data-hover>
+      <span class="loc__num">/ 02</span>
+      <h3 class="loc__name">Masseria <em>Potenti</em></h3>
+      <p class="loc__desc">Centuries-old olive trees, white stone, and receptions that run until sunrise in the Manduria countryside.</p>
+      <span class="loc__tag">Puglia — Manduria</span>
+      <span class="loc__arrow">→</span>
+      <div class="loc__preview"></div>
+    </div>
+    <div class="loc loc--3" data-hover>
+      <span class="loc__num">/ 03</span>
+      <h3 class="loc__name">Villa <em>Cimbrone</em></h3>
+      <p class="loc__desc">The Terrace of Infinity poised above the sea, framed by wisteria pergolas.</p>
+      <span class="loc__tag">Campania — Ravello</span>
+      <span class="loc__arrow">→</span>
+      <div class="loc__preview"></div>
+    </div>
+    <div class="loc loc--4" data-hover>
+      <span class="loc__num">/ 04</span>
+      <h3 class="loc__name">Borgo <em>Santo Pietro</em></h3>
+      <p class="loc__desc">A medieval hamlet turned country retreat: kitchen gardens, a private chapel, twelve suites.</p>
+      <span class="loc__tag">Tuscany — Chiusdino</span>
+      <span class="loc__arrow">→</span>
+      <div class="loc__preview"></div>
+    </div>
+    <div class="loc loc--5" data-hover>
+      <span class="loc__num">/ 05</span>
+      <h3 class="loc__name">Villa <em>del Balbianello</em></h3>
+      <p class="loc__desc">A promontory above Lake Como, a loggia opening onto the water, and quiet rows of cypress.</p>
+      <span class="loc__tag">Lombardy — Lenno</span>
+      <span class="loc__arrow">→</span>
+      <div class="loc__preview"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process reveal" id="process">
+  <div class="section-head" style="border-bottom:0; padding:0;">
+    <div>
+      <div class="eyebrow">N°005 — Approach</div>
+      <h2 style="margin-top:24px;">How we <em>work</em> together</h2>
+    </div>
+    <div class="mono" style="color: var(--ink-mute);">Four chapters · Twelve months</div>
+  </div>
+  <div class="process__grid">
+    <div class="process__card">
+      <span class="num">/ 01</span>
+      <h3><em>Listening</em></h3>
+      <p>A long conversation to understand who you are, how you love each other, the kind of day you're picturing.</p>
+    </div>
+    <div class="process__card">
+      <span class="num">/ 02</span>
+      <h3><em>Vision</em></h3>
+      <p>An illustrated lookbook — mood, palette, venues, timeline — becomes your compass for the year ahead.</p>
+    </div>
+    <div class="process__card">
+      <span class="num">/ 03</span>
+      <h3><em>Planning</em></h3>
+      <p>Vendor selection, contracts, site visits, tastings. We handle every thread, quietly, behind the scenes.</p>
+    </div>
+    <div class="process__card">
+      <span class="num">/ 04</span>
+      <h3><em>The big day</em></h3>
+      <p>A discreet team, a minute-by-minute run sheet, and your right to forget every single detail.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote reveal">
+  <blockquote>
+    "Elisabetta didn't plan a wedding: she <em>composed</em> a day that felt as if it had always been ours."
+  </blockquote>
+  <div class="who">Sofia &amp; Lorenzo — Val d'Orcia, 2025</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact reveal" id="contact">
+  <div class="contact__wrap">
+    <div>
+      <div class="eyebrow" style="margin-bottom:20px;">N°006 — Contact</div>
+      <h2>Tell me<br/><em>your</em><br/>story.</h2>
+      <div class="contact__meta">
+        <div>
+          <span class="mono k">Email</span>
+          <span class="v it">studio@elisabetta.it</span>
+        </div>
+        <div>
+          <span class="mono k">Phone</span>
+          <span class="v">+39 345 284 19 06</span>
+        </div>
+        <div>
+          <span class="mono k">Studio</span>
+          <span class="v">Via del Parione 12 — Florence</span>
+        </div>
+        <div>
+          <span class="mono k">Instagram</span>
+          <span class="v it">@elisabetta.studio</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="formWrap">
+      <form class="contact__form" id="form">
+        <div class="field__row">
+          <div class="field">
+            <label>01 — Full names</label>
+            <input type="text" name="name" placeholder="What should I call you?" required>
+          </div>
+          <div class="field">
+            <label>02 — Email</label>
+            <input type="email" name="email" placeholder="where to reach you" required>
+          </div>
+        </div>
+        <div class="field__row">
+          <div class="field">
+            <label>03 — Estimated date</label>
+            <input type="text" name="date" placeholder="e.g. June 2027">
+          </div>
+          <div class="field">
+            <label>04 — Guest count</label>
+            <select name="guests">
+              <option>— select —</option>
+              <option>Up to 40</option>
+              <option>40 — 80</option>
+              <option>80 — 150</option>
+              <option>Over 150</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>05 — Preferred venue / region</label>
+          <input type="text" name="where" placeholder="Tuscany, Puglia, Lake Como…">
+        </div>
+        <div class="field">
+          <label>06 — Tell me a little about you</label>
+          <textarea name="message" placeholder="How did you meet? What kind of day do you picture?" rows="3"></textarea>
+        </div>
+        <button class="submit" type="submit">
+          Send enquiry <span class="arrow">→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="foot__top">
+    <div>
+      <div class="foot__mark"><span>E</span>lisabetta<br/><em class="italic" style="font-size:22px; color:rgba(244,237,228,0.6)">— wedding studio, florence</em></div>
+    </div>
+    <div>
+      <h4>Studio</h4>
+      <ul>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#locations">Venues</a></li>
+        <li><a href="#process">Approach</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:studio@elisabetta.it">studio@elisabetta.it</a></li>
+        <li><a href="#">+39 345 284 19 06</a></li>
+        <li><a href="#">Florence, Italy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Social</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Pinterest</a></li>
+        <li><a href="#">Vogue Weddings</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot__bot">
+    <span>© 2026 Studio Elisabetta — VAT 0458 1120 482</span>
+    <span>Site · N° 002.4 — Spring Edition</span>
+  </div>
+</footer>
+
+<!-- TWEAKS -->
+<div class="tweaks" id="tweaks">
+  <h4>Tweaks</h4>
+  <div class="tweaks__row">
+    <label>Variant</label>
+    <div class="tweaks__opts" data-key="variant">
+      <button data-v="editoriale">Editorial</button>
+      <button data-v="minimal">Minimal</button>
+      <button data-v="romantico">Romantic</button>
+    </div>
+  </div>
+  <div class="tweaks__row">
+    <label>Accent</label>
+    <div class="tweaks__opts" data-key="accent">
+      <button data-v="rust">Rust</button>
+      <button data-v="clay">Clay</button>
+      <button data-v="olive">Olive</button>
+      <button data-v="rose">Rose</button>
+    </div>
+  </div>
+  <div class="tweaks__row">
+    <label>Custom cursor</label>
+    <div class="tweaks__opts" data-key="showCursor">
+      <button data-v="true">On</button>
+      <button data-v="false">Off</button>
+    </div>
+  </div>
+  <div class="tweaks__row">
+    <label>Wordmark</label>
+    <input type="text" id="wordmarkInput" />
+  </div>
+</div>
+
+<script>
+(function() {
+  // --- Tweaks protocol ---
+  const tweaksEl = document.getElementById('tweaks');
+  let state = { ...window.TWEAKS };
+
+  function applyVariant(v) {
+    if (v === 'minimal') {
+      document.body.style.setProperty('--cream', '#f6f2ec');
+      document.body.style.setProperty('--cream-pale', '#fbf8f3');
+    } else if (v === 'romantico') {
+      document.body.style.setProperty('--cream', '#f0e3d4');
+      document.body.style.setProperty('--cream-pale', '#f7ecdd');
+    } else {
+      document.body.style.removeProperty('--cream');
+      document.body.style.removeProperty('--cream-pale');
+    }
+  }
+
+  function apply() {
+    document.documentElement.dataset.accent = state.accent;
+    applyVariant(state.variant);
+    document.getElementById('cursor').style.display = state.showCursor ? '' : 'none';
+    const w = document.getElementById('wordmark');
+    if (w && state.wordmark) w.textContent = state.wordmark;
+    // reflect in controls
+    tweaksEl.querySelectorAll('[data-key]').forEach(row => {
+      const key = row.dataset.key;
+      row.querySelectorAll('button').forEach(b => {
+        const val = b.dataset.v === 'true' ? true : b.dataset.v === 'false' ? false : b.dataset.v;
+        b.classList.toggle('is-on', state[key] === val);
+      });
+    });
+    const wi = document.getElementById('wordmarkInput');
+    if (wi && wi.value !== state.wordmark) wi.value = state.wordmark;
+  }
+  apply();
+
+  tweaksEl.querySelectorAll('[data-key]').forEach(row => {
+    const key = row.dataset.key;
+    row.querySelectorAll('button').forEach(b => {
+      b.addEventListener('click', () => {
+        let v = b.dataset.v;
+        if (v === 'true') v = true; else if (v === 'false') v = false;
+        state[key] = v;
+        apply();
+        try { window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: v } }, '*'); } catch (e) {}
+      });
+    });
+  });
+  document.getElementById('wordmarkInput').addEventListener('input', e => {
+    state.wordmark = e.target.value;
+    apply();
+    try { window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { wordmark: e.target.value } }, '*'); } catch (e2) {}
+  });
+
+  // listener first, then announce
+  window.addEventListener('message', (e) => {
+    if (!e.data || !e.data.type) return;
+    if (e.data.type === '__activate_edit_mode') tweaksEl.classList.add('is-open');
+    if (e.data.type === '__deactivate_edit_mode') tweaksEl.classList.remove('is-open');
+  });
+  try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch (e) {}
+
+  // --- Nav scroll ---
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('is-scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // --- Reveal on scroll ---
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('is-in'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // --- Custom cursor ---
+  const cursor = document.getElementById('cursor');
+  let tx = 0, ty = 0, cx = 0, cy = 0;
+  window.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
+  function raf() {
+    cx += (tx - cx) * 0.22;
+    cy += (ty - cy) * 0.22;
+    cursor.style.left = cx + 'px';
+    cursor.style.top = cy + 'px';
+    requestAnimationFrame(raf);
+  }
+  raf();
+  document.querySelectorAll('[data-hover], a, button, .event, .loc').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'));
+  });
+
+  // --- Form ---
+  const form = document.getElementById('form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = (data.get('name') || '').toString().trim().split(' ')[0] || 'voi';
+    const wrap = document.getElementById('formWrap');
+    wrap.innerHTML = `
+      <div class="sent">
+        <div style="font-family:var(--ff-mono); font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink-mute); margin-bottom:16px;">Enquiry received · N° ${Math.floor(Math.random()*900+100)}</div>
+        Thank you <em>${name}</em>.<br/>
+        I'll write back within 48 hours<br/>with first thoughts.
+      </div>`;
+    try { wrap.scrollIntoView; } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>

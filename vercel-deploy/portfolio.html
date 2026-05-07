@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Portfolio — Elisabetta Wedding Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Jost:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shared.css">
+<script>window.TWEAKS = { variant:'editoriale', accent:'rust', showCursor:false, wordmark:'Elisabetta' };</script>
+<style>
+  .pf-filters { display: flex; gap: 24px; padding: 36px 40px; border-bottom: 1px solid var(--line); flex-wrap: wrap; align-items: baseline; }
+  .pf-filters span.k { font-family: var(--ff-mono); font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color: var(--ink-mute); }
+  .pf-filters button {
+    background: transparent; border: 0; cursor: pointer;
+    font-family: var(--ff-display); font-size: 22px; font-weight: 400;
+    color: var(--ink-mute);
+    letter-spacing: -0.01em;
+    padding: 4px 0; position: relative;
+    transition: color 0.25s ease;
+  }
+  .pf-filters button.is-on { color: var(--ink); font-style: italic; font-family: var(--ff-italic); }
+  .pf-filters button.is-on::after { content:""; position: absolute; left:0; right:0; bottom:-4px; height:1px; background: var(--rust); }
+
+  .pf-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 32px;
+    padding: 80px 40px 40px;
+  }
+  .pf-card { grid-column: span 4; cursor: pointer; }
+  .pf-card.wide { grid-column: span 6; }
+  .pf-card.tall { grid-column: span 4; }
+  .pf-card.full { grid-column: span 8; }
+  .pf-card__img { position: relative; overflow: hidden; background: var(--cream-deep); aspect-ratio: 3/4; }
+  .pf-card.wide .pf-card__img { aspect-ratio: 3/2; }
+  .pf-card.full .pf-card__img { aspect-ratio: 16/10; }
+  .pf-card__img::before { content:""; position:absolute; inset:0; background-size: cover; background-position: center; transition: transform 1.2s cubic-bezier(.2,.7,.2,1), filter .6s ease; }
+  .pf-card:hover .pf-card__img::before { transform: scale(1.05); filter: brightness(.94); }
+  .pf-card__meta { display:flex; justify-content:space-between; align-items:baseline; padding: 18px 0 4px; gap: 20px; }
+  .pf-card__meta h3 { font-family: var(--ff-display); font-size: 24px; font-weight: 400; }
+  .pf-card__meta h3 em { font-family: var(--ff-italic); font-style: italic; color: var(--rust); }
+  .pf-card__meta span { font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.16em; color: var(--ink-mute); white-space: nowrap; }
+  .pf-card__tag { font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); }
+
+  .pf-card[data-region] { display: none; }
+  .pf-card.is-visible { display: block; }
+
+  /* images */
+  .pf-1 { background-image: url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80"); }
+  .pf-2 { background-image: url("https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1400&q=80"); }
+  .pf-3 { background-image: url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80"); }
+  .pf-4 { background-image: url("https://images.unsplash.com/photo-1525772764200-be829a350797?auto=format&fit=crop&w=1000&q=80"); }
+  .pf-5 { background-image: url("https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1000&q=80"); }
+  .pf-6 { background-image: url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=80"); }
+  .pf-7 { background-image: url("https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=1200&q=80"); }
+  .pf-8 { background-image: url("https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1000&q=80"); }
+  .pf-9 { background-image: url("https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80"); }
+  .pf-10 { background-image: url("https://images.unsplash.com/photo-1509927083803-4bd519298ac4?auto=format&fit=crop&w=1200&q=80"); }
+  .pf-11 { background-image: url("https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=1200&q=80"); }
+  .pf-12 { background-image: url("https://images.unsplash.com/photo-1460364157752-926555421a7e?auto=format&fit=crop&w=1200&q=80"); }
+
+  @media (max-width: 900px) { .pf-card, .pf-card.wide, .pf-card.tall, .pf-card.full { grid-column: span 12; } }
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div data-nav></div>
+
+<section class="pagehero" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=80');">
+  <div class="pagehero__kicker">Twelve <em>love stories</em>,<br/>gathered with care.</div>
+  <div class="pagehero__cap"><span>N°001 — Portfolio</span><i>/</i><span>Val d'Orcia · August 2025</span></div>
+</section>
+
+<section class="pagehead pagehead--after">
+  <div>
+    <div class="pagehead__meta">
+      <span class="mono">N°001 — Portfolio</span>
+      <span class="mono">12 of 148 weddings</span>
+      <span class="mono">2022 — 2026</span>
+    </div>
+    <h1>Twelve<br/>stories, <em>twelve<br/>homes</em>.</h1>
+  </div>
+  <p class="pagehead__lede">
+    Every wedding is a small novel: <em>it begins with a meeting</em>, crosses a landscape, and closes around a long table set beneath the olive trees. A selection from recent years.
+  </p>
+</section>
+
+<div class="pf-filters">
+  <span class="k">Filter —</span>
+  <button class="is-on" data-filter="all">All</button>
+  <button data-filter="toscana">Tuscany</button>
+  <button data-filter="puglia">Puglia</button>
+  <button data-filter="costiera">Amalfi Coast</button>
+  <button data-filter="lago">Lakes</button>
+  <button data-filter="altro">Other</button>
+</div>
+
+<section class="pf-grid" id="grid">
+  <article class="pf-card wide" data-region="toscana">
+    <div class="pf-card__img"><div class="pf-card__img pf-2" style="position:absolute; inset:0;"></div></div>
+    <div class="pf-card__meta"><h3>Sofia &amp; Lorenzo <em>— Val d'Orcia</em></h3><span>N°087 · Aug 2025</span></div>
+    <span class="pf-card__tag">Tuscany · 180 guests · three days</span>
+  </article>
+  <article class="pf-card" data-region="toscana">
+    <div class="pf-card__img"><div class="pf-card__img pf-3" style="position:absolute; inset:0;"></div></div>
+    <div class="pf-card__meta"><h3>Chiara &amp; James</h3><span>N°091 · Sep 2025</span></div>
+    <span class="pf-card__tag">Borgo Pienza · 90 guests</span>
+  </article>
+  <article class="pf-card" data-region="puglia">
+    <div class="pf-card__img"><div class="pf-card__img pf-4" style="position:absolute; inset:0;"></div></div>
+    <div class="pf-card__meta"><h3>Giulia &amp; Matteo</h3><span>N°076 · Jun 2024</span></div>
+    <span class="pf-card__tag">Masseria Potenti · 120 guests</span>
+  </article>
+  <article class="pf-card tall" data-region="costiera">
+    <div class="pf-card__img"><div class="pf-card__img pf-5" style="position:absolute; inset:0;"></div></div>
+    <div class="pf-card__meta"><h3>Anna &amp; Tom <em>— Ravello</em></h3><span>N°081 · May 2024</span></div>
+    <span class="pf-card__tag">Villa Cimbrone · 60 guests</span>
+  </article>
+  <article class="pf-card" data-region="lago">
+    <div class="pf-card__img"><div class="pf-card__img pf-6" style="position:absolute; inset:0;"></div></div>
+    <div class="pf-card__meta"><h3>Beatrice &amp; Nico</h3><span>N°093 · Oct 2025</span></div>
+    <span class="pf-card__tag">Lake Como · 140 guests</span>
+  </article>
+  <article class="pf-card full" data-region="toscana">
+    <div class="pf-card__img"><div class="pf-card__img pf-7" style="position:absolute; inset:0;"></div></div>
+    <div class="pf-card__meta"><h3>Martina &amp; Edoardo <em>— Borgo Santo Pietro</em></h3><span>N°082 · Jul 2024</span></div>
+    <span class="pf-card__tag">Tuscany · 70 guests · sunrise ceremony</span>
+  </article>
+  <article class="pf-card" data-region="altro">
+    <div class="pf-card__img"><div class="pf-card__img pf-8" style="position:absolute; inset:0;"></div></div>
+    <div class="pf-card__meta"><h3>Livia &amp; Alex</h3><span>N°089 · Sep 2024</span></div>
+    <span class="pf-card__tag">Umbria · Todi · 80 guests</span>
+  </article>
+  <article class="pf-card" data-region="puglia">
+    <div class="pf-card__img"><div class="pf-card__img pf-9" style="position:absolute; inset:0;"></div></div>
+    <div class="pf-card__meta"><h3>Francesca &amp; Tom</h3><span>N°079 · Jun 2024</span></div>
+    <span class="pf-card__tag">Ostuni · 110 guests</span>
+  </article>
+  <article class="pf-card wide" data-region="lago">
+    <div class="pf-card__img"><div class="pf-card__img pf-10" style="position:absolute; inset:0;"></div></div>
+    <div class="pf-card__meta"><h3>Camilla &amp; Henri <em>— Villa del Balbianello</em></h3><span>N°094 · Oct 2025</span></div>
+    <span class="pf-card__tag">Lenno · 95 guests · lakeside ceremony</span>
+  </article>
+  <article class="pf-card" data-region="costiera">
+    <div class="pf-card__img"><div class="pf-card__img pf-11" style="position:absolute; inset:0;"></div></div>
+    <div class="pf-card__meta"><h3>Bianca &amp; Daniel</h3><span>N°083 · Jun 2024</span></div>
+    <span class="pf-card__tag">Positano · 55 guests</span>
+  </article>
+  <article class="pf-card" data-region="altro">
+    <div class="pf-card__img"><div class="pf-card__img pf-12" style="position:absolute; inset:0;"></div></div>
+    <div class="pf-card__meta"><h3>Elena &amp; Marco</h3><span>N°090 · Aug 2025</span></div>
+    <span class="pf-card__tag">Dolomites · 45 guests</span>
+  </article>
+  <article class="pf-card tall" data-region="toscana">
+    <div class="pf-card__img"><div class="pf-card__img pf-1" style="position:absolute; inset:0;"></div></div>
+    <div class="pf-card__meta"><h3>Alice &amp; Paolo</h3><span>N°086 · Jun 2025</span></div>
+    <span class="pf-card__tag">Siena · 100 guests</span>
+  </article>
+</section>
+
+<section class="quote reveal" style="padding: 140px 40px;">
+  <blockquote>
+    "Our work is done when someone, among the guests, quietly says: <em>this feels just like home</em>."
+  </blockquote>
+  <div class="who">Studio Elisabetta — Manifesto, fragment</div>
+</section>
+
+<div data-foot></div>
+
+<script src="assets/partials.js"></script>
+<script src="assets/chrome.js"></script>
+<script>
+  // filter logic
+  const grid = document.getElementById('grid');
+  const cards = [...grid.querySelectorAll('.pf-card')];
+  cards.forEach(c => c.classList.add('is-visible'));
+  document.querySelectorAll('.pf-filters button').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.pf-filters button').forEach(x => x.classList.remove('is-on'));
+      b.classList.add('is-on');
+      const f = b.dataset.filter;
+      cards.forEach(c => {
+        const show = f === 'all' || c.dataset.region === f;
+        c.classList.toggle('is-visible', show);
+      });
+    });
+  });
+</script>
+</body>
+</html>
