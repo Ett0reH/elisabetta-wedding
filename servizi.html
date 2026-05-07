@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Approach &amp; Services — Elisabetta Wedding Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Jost:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shared.css">
+<script>window.TWEAKS = { variant:'editoriale', accent:'rust', showCursor:false, wordmark:'Elisabetta' };</script>
+<style>
+  .method {
+    padding: 100px 40px;
+    max-width: 1400px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+  .method__chapter {
+    border-top: 1px solid var(--ink);
+    padding-top: 28px;
+    position: relative;
+  }
+  .method__chapter .num {
+    font-family: var(--ff-mono); font-size: 11px; letter-spacing: 0.22em; color: var(--rust);
+    display: block; margin-bottom: 80px;
+  }
+  .method__chapter h3 { font-family: var(--ff-display); font-size: clamp(36px, 4vw, 56px); font-weight: 400; letter-spacing: -0.015em; margin-bottom: 16px; }
+  .method__chapter h3 em { font-family: var(--ff-italic); font-style: italic; color: var(--rust); }
+  .method__chapter p { color: var(--ink-soft); max-width: 460px; margin-bottom: 20px; font-size: 15px; line-height: 1.6; }
+  .method__chapter ul { list-style: none; padding: 0; }
+  .method__chapter li { padding: 10px 0; border-bottom: 1px solid var(--line); font-family: var(--ff-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); display: flex; justify-content: space-between; }
+  .method__chapter li em { font-family: var(--ff-italic); font-style: italic; text-transform: none; letter-spacing: 0; color: var(--rust); font-size: 14px; }
+
+  .pkgs { padding: 120px 40px; background: var(--cream-pale); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .pkgs__head { max-width: 1400px; margin: 0 auto 60px; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; }
+  .pkgs__head h2 { font-family: var(--ff-display); font-size: clamp(44px, 5vw, 80px); letter-spacing: -0.025em; max-width: 700px; }
+  .pkgs__head h2 em { font-family: var(--ff-italic); font-style: italic; color: var(--rust); }
+  .pkgs__head p { max-width: 320px; color: var(--ink-soft); }
+
+  .pkgs__grid {
+    max-width: 1400px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--line-strong);
+  }
+  .pkg {
+    padding: 40px 36px 48px;
+    border-right: 1px solid var(--line-strong);
+    background: var(--cream);
+    display: flex; flex-direction: column; gap: 20px;
+    position: relative;
+  }
+  .pkg:last-child { border-right: 0; }
+  .pkg.is-featured { background: var(--ink); color: var(--cream); }
+  .pkg.is-featured ul li { border-color: rgba(244,237,228,0.18); color: rgba(244,237,228,0.85); }
+  .pkg.is-featured .pkg__price { color: var(--cream); }
+  .pkg.is-featured .pkg__price em { color: var(--rust); }
+  .pkg.is-featured small { color: rgba(244,237,228,0.55); }
+  .pkg.is-featured .pkg__name em { color: var(--rust); }
+  .pkg.is-featured::before { content:"— most chosen"; position: absolute; top: 16px; right: 20px; font-family: var(--ff-mono); font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rust); }
+
+  .pkg__tag { font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); }
+  .pkg.is-featured .pkg__tag { color: rgba(244,237,228,0.55); }
+  .pkg__name { font-family: var(--ff-display); font-size: 44px; font-weight: 400; letter-spacing: -0.02em; }
+  .pkg__name em { font-family: var(--ff-italic); font-style: italic; color: var(--rust); }
+  .pkg__lede { font-size: 14px; color: var(--ink-soft); max-width: 280px; }
+  .pkg.is-featured .pkg__lede { color: rgba(244,237,228,0.75); }
+  .pkg__price { font-family: var(--ff-display); font-size: 32px; font-weight: 400; margin-top: 8px; letter-spacing: -0.01em; }
+  .pkg__price em { font-family: var(--ff-italic); font-style: italic; color: var(--rust); font-size: 16px; margin-left: 6px; }
+  .pkg ul { list-style: none; margin-top: 12px; }
+  .pkg li { padding: 11px 0; border-top: 1px solid var(--line); font-size: 13px; color: var(--ink-soft); display: flex; gap: 10px; }
+  .pkg li::before { content:"·"; color: var(--rust); font-weight: bold; }
+  .pkg__cta { margin-top: auto; padding-top: 24px; }
+  .pkg__cta a {
+    display: inline-block;
+    font-family: var(--ff-mono); font-size: 10.5px; letter-spacing: 0.2em;
+    text-transform: uppercase; padding: 14px 24px;
+    border: 1px solid currentColor; border-radius: 100px;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  .pkg__cta a:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .pkg.is-featured .pkg__cta a:hover { background: var(--rust); border-color: var(--rust); color: var(--cream); }
+
+  .faq { padding: 120px 40px; max-width: 1100px; margin: 0 auto; }
+  .faq h2 { font-family: var(--ff-display); font-size: clamp(44px, 5vw, 72px); letter-spacing: -0.025em; margin-bottom: 60px; }
+  .faq h2 em { font-family: var(--ff-italic); font-style: italic; color: var(--rust); }
+  details {
+    border-top: 1px solid var(--line);
+    padding: 24px 0;
+  }
+  details:last-child { border-bottom: 1px solid var(--line); }
+  summary {
+    cursor: pointer;
+    font-family: var(--ff-display);
+    font-size: clamp(22px, 2.4vw, 30px);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    display: flex; justify-content: space-between; align-items: center;
+    list-style: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-family: var(--ff-display); font-size: 32px; font-weight: 300; transition: transform 0.3s ease; color: var(--rust); }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p { padding: 16px 0 4px; color: var(--ink-soft); max-width: 800px; line-height: 1.7; }
+
+  @media (max-width: 900px) {
+    .method { grid-template-columns: 1fr; gap: 32px; padding: 60px 24px; }
+    .pkgs__grid { grid-template-columns: 1fr; }
+    .pkg { border-right: 0; border-bottom: 1px solid var(--line-strong); }
+    .pkg:last-child { border-bottom: 0; }
+    .pkgs__head { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div data-nav></div>
+
+<section class="pagehero" style="background-image:url('https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=1800&q=80');">
+  <div class="pagehero__kicker">A method that unfolds<br/>over <em>twelve months</em>.</div>
+  <div class="pagehero__cap"><span>N°003 — Approach</span><i>/</i><span>Lookbook &amp; timeline · Studio</span></div>
+</section>
+
+<section class="pagehead pagehead--after">
+  <div>
+    <div class="pagehead__meta">
+      <span class="mono">N°003 — Approach</span>
+      <span class="mono">12 months · 4 chapters</span>
+    </div>
+    <h1>How<br/>we <em>work</em><br/>together.</h1>
+  </div>
+  <p class="pagehead__lede">
+    A four-chapter method, refined over twelve years. No formula — just <em>steady attention</em>, a single point of contact, and a run sheet written by hand.
+  </p>
+</section>
+
+<section class="method">
+  <div class="method__chapter reveal">
+    <span class="num">/ 01 — Chapter one</span>
+    <h3><em>Listening</em></h3>
+    <p>A long conversation — over the phone, at our studio, or wherever you'd like — to understand who you are, how you love each other, the kind of day you're picturing. No templates, no online questionnaires.</p>
+    <ul>
+      <li>First discovery meeting <em>2h</em></li>
+      <li>Initial mood board <em>included</em></li>
+      <li>Budget framework <em>transparent</em></li>
+    </ul>
+  </div>
+
+  <div class="method__chapter reveal">
+    <span class="num">/ 02 — Chapter two</span>
+    <h3><em>Vision</em></h3>
+    <p>An illustrated lookbook — printed and hand-bound — with palette, timeline, shortlisted venues and visual references. It becomes your compass for the year ahead.</p>
+    <ul>
+      <li>Printed lookbook <em>40 pages</em></li>
+      <li>Material palette <em>6 elements</em></li>
+      <li>Venue shortlist <em>3–5 options</em></li>
+    </ul>
+  </div>
+
+  <div class="method__chapter reveal">
+    <span class="num">/ 03 — Chapter three</span>
+    <h3><em>Planning</em></h3>
+    <p>The long, invisible stretch. Vendor selection, contracts, site visits, tastings, logistics, guests, timeline. All you have to do is trust us — and taste the cake.</p>
+    <ul>
+      <li>Curated vendors <em>15–25</em></li>
+      <li>Site visits <em>unlimited</em></li>
+      <li>RSVP management <em>included</em></li>
+      <li>Contract coordination <em>full</em></li>
+    </ul>
+  </div>
+
+  <div class="method__chapter reveal">
+    <span class="num">/ 04 — Chapter four</span>
+    <h3><em>The big day</em></h3>
+    <p>A discreet team, a minute-by-minute run sheet, and your right to forget every single detail. I stay until the last song. The next morning: pack-down and key handover.</p>
+    <ul>
+      <li>On-site team <em>4–6 people</em></li>
+      <li>Planner present <em>full day</em></li>
+      <li>Rehearsal <em>day before</em></li>
+      <li>Post-event <em>day after</em></li>
+    </ul>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="pkgs">
+  <div class="pkgs__head">
+    <h2>Three ways to <em>work together</em>.</h2>
+    <p>You can choose the level of involvement that suits you best. Every package is tailor-made — these figures are simply a starting point.</p>
+  </div>
+
+  <div class="pkgs__grid">
+    <div class="pkg">
+      <span class="pkg__tag">— Package 01</span>
+      <h3 class="pkg__name">Consulting</h3>
+      <p class="pkg__lede">For couples who already have a clear vision and want a guiding hand on key decisions.</p>
+      <div class="pkg__price">from € 4,500<em>+VAT</em></div>
+      <ul>
+        <li>3 strategic meetings</li>
+        <li>Vendor shortlist</li>
+        <li>Initial mood board</li>
+        <li>Timeline review</li>
+      </ul>
+      <div class="pkg__cta"><a href="contatti.html">Enquire →</a></div>
+    </div>
+
+    <div class="pkg is-featured">
+      <span class="pkg__tag">— Package 02</span>
+      <h3 class="pkg__name">Full <em>planning</em></h3>
+      <p class="pkg__lede">The complete project, from the first call to the last song. Our most popular package.</p>
+      <div class="pkg__price">from € 14,000<em>+VAT</em></div>
+      <ul>
+        <li>Full event design</li>
+        <li>Vendor management (15–25)</li>
+        <li>Unlimited site visits</li>
+        <li>Printed lookbook</li>
+        <li>RSVP &amp; logistics management</li>
+        <li>On-site team (4–6 people)</li>
+        <li>Post-event wrap-up</li>
+      </ul>
+      <div class="pkg__cta"><a href="contatti.html">Enquire →</a></div>
+    </div>
+
+    <div class="pkg">
+      <span class="pkg__tag">— Package 03</span>
+      <h3 class="pkg__name">Destination</h3>
+      <p class="pkg__lede">For international couples — multi-day weddings, guests flying in from abroad, complex logistics.</p>
+      <div class="pkg__price">from € 22,000<em>+VAT</em></div>
+      <ul>
+        <li>Everything in Full planning</li>
+        <li>Welcome event + farewell brunch</li>
+        <li>Flights &amp; transfers managed</li>
+        <li>International guest concierge</li>
+        <li>Translations &amp; bilingual ceremony</li>
+      </ul>
+      <div class="pkg__cta"><a href="contatti.html">Enquire →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq reveal">
+  <h2>Frequently <em>asked</em></h2>
+  <details>
+    <summary>How far in advance should we get in touch?</summary>
+    <p>Ideally 12–18 months before the wedding. I take on a maximum of 6 weddings a year to give each one full attention. Peak months (May, June, September) book up well in advance.</p>
+  </details>
+  <details>
+    <summary>Do you plan weddings outside Italy?</summary>
+    <p>Yes — we collaborate with trusted vendors in France (Provence, French Riviera), Greece (Paros, Santorini) and Morocco (Marrakech). The Destination package covers these.</p>
+  </details>
+  <details>
+    <summary>How does payment work?</summary>
+    <p>30% deposit on signing, 40% six months out, balance the day before the wedding. Vendors are paid directly by you, with transparent invoices: no hidden commissions on our side.</p>
+  </details>
+  <details>
+    <summary>Do you work with photographers and videographers?</summary>
+    <p>I have a shortlist of 12 trusted creatives I work with regularly, in Italy and abroad. The choice is always yours — I'll present 3 options to match your style and budget.</p>
+  </details>
+  <details>
+    <summary>Can we fully personalise the ceremony?</summary>
+    <p>Absolutely. I work with secular celebrants, priests open to bespoke ceremonies, and multilingual officiants. The ceremony is the heart of the day — we build it together, with great care.</p>
+  </details>
+</section>
+
+<div data-foot></div>
+
+<script src="assets/partials.js"></script>
+<script src="assets/chrome.js"></script>
+</body>
+</html>

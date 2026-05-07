@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contatti — Elisabetta Wedding Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Jost:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shared.css">
+<script>window.TWEAKS = { variant:'editoriale', accent:'rust', showCursor:false, wordmark:'Elisabetta' };</script>
+<style>
+  .c-head {
+    padding: 180px 40px 60px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: end;
+    border-bottom: 1px solid var(--line);
+  }
+  .c-head h1 { font-size: clamp(64px, 9vw, 144px); letter-spacing: -0.025em; line-height: 0.92; }
+  .c-head h1 em { font-family: var(--ff-italic); font-style: italic; color: var(--rust); }
+  .c-head__lede { font-family: var(--ff-display); font-size: clamp(22px, 2.2vw, 28px); line-height: 1.35; font-weight: 300; color: var(--ink-soft); max-width: 460px; padding-bottom: 20px; }
+  .c-head__lede em { font-family: var(--ff-italic); font-style: italic; color: var(--rust); }
+
+  .c-body {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 100px;
+    padding: 100px 40px;
+    max-width: 1400px; margin: 0 auto;
+  }
+  .c-info { display: flex; flex-direction: column; gap: 36px; }
+  .c-info__block { display: flex; flex-direction: column; gap: 6px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .c-info__block h4 { font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); font-weight: 400; margin-bottom: 6px; }
+  .c-info__block .v { font-family: var(--ff-display); font-size: 24px; font-weight: 400; letter-spacing: -0.01em; }
+  .c-info__block .v.it { font-family: var(--ff-italic); font-style: italic; }
+  .c-info__block p { font-size: 14px; color: var(--ink-soft); line-height: 1.55; margin-top: 4px; }
+  .c-info__studio {
+    margin-top: 24px;
+    aspect-ratio: 4/3;
+    background-image: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80");
+    background-size: cover; background-position: center;
+    position: relative;
+  }
+  .c-info__studio::after {
+    content: "Studio · Via del Parione 12, Florence";
+    position: absolute; bottom: 12px; left: 12px;
+    font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cream-pale);
+  }
+
+  .c-form { background: var(--cream-pale); padding: 56px 52px; border: 1px solid var(--line); }
+  .c-form h2 { font-family: var(--ff-display); font-size: clamp(32px, 3.6vw, 48px); letter-spacing: -0.02em; margin-bottom: 8px; }
+  .c-form h2 em { font-family: var(--ff-italic); font-style: italic; color: var(--rust); }
+  .c-form__lede { color: var(--ink-soft); font-size: 14px; margin-bottom: 40px; }
+
+  .map-strip { background: var(--ink); color: var(--cream); padding: 100px 40px; }
+  .map-strip__wrap { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .map-strip h2 { font-family: var(--ff-display); font-size: clamp(40px, 5vw, 72px); letter-spacing: -0.025em; line-height: 1; }
+  .map-strip h2 em { font-family: var(--ff-italic); font-style: italic; color: var(--rust); }
+  .map-strip p { color: rgba(244,237,228,0.7); max-width: 440px; margin-top: 20px; }
+  .map-strip__hours { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 40px; margin-top: 32px; }
+  .map-strip__hours div { padding: 12px 0; border-top: 1px solid rgba(244,237,228,0.2); display: flex; justify-content: space-between; font-family: var(--ff-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .map-strip__hours div em { font-family: var(--ff-italic); font-style: italic; text-transform: none; letter-spacing: 0; color: var(--rust); font-size: 14px; }
+
+  .map-strip__map {
+    aspect-ratio: 5/4;
+    background-image:
+      linear-gradient(135deg, rgba(180,89,58,0.1), rgba(43,33,25,0.6)),
+      url("https://images.unsplash.com/photo-1543429776-2782fc8e1acd?auto=format&fit=crop&w=1200&q=80");
+    background-size: cover; background-position: center;
+    position: relative;
+  }
+  .map-strip__map::after {
+    content: "43.772° N · 11.247° E — Florence";
+    position: absolute; bottom: 16px; left: 16px;
+    font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cream-pale);
+  }
+
+  .c-close {
+    padding: 140px 40px;
+    text-align: center;
+    max-width: 1000px; margin: 0 auto;
+  }
+  .c-close h2 {
+    font-family: var(--ff-display);
+    font-size: clamp(48px, 6vw, 88px);
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
+  .c-close h2 em { font-family: var(--ff-italic); font-style: italic; color: var(--rust); }
+
+  @media (max-width: 900px) {
+    .c-head, .c-body, .map-strip__wrap { grid-template-columns: 1fr; padding: 140px 24px 40px; gap: 40px; }
+    .c-form { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div data-nav></div>
+
+<section class="pagehero" style="background-image:url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1800&q=80');">
+  <div class="pagehero__kicker">Every story begins<br/>with a <em>conversation</em>.</div>
+  <div class="pagehero__cap"><span>N°006 — Contact</span><i>/</i><span>Reply within 48 hours</span></div>
+</section>
+
+<section class="c-head">
+  <div>
+    <div class="pagehead__meta"><span class="mono">N°006 — Contact</span><span class="mono">Reply within 48h</span></div>
+    <h1>Tell us<br/><em>your</em><br/>story.</h1>
+  </div>
+  <p class="c-head__lede">
+    Every great day starts with a conversation. <em>Write to us here</em> — I reply personally to every enquiry, within forty-eight hours, always.
+  </p>
+</section>
+
+<section class="c-body">
+  <aside class="c-info reveal">
+    <div class="c-info__block">
+      <h4>— Email</h4>
+      <span class="v it">studio@elisabetta.it</span>
+      <p>Even just a couple of lines is enough to know whether we'll work well together.</p>
+    </div>
+    <div class="c-info__block">
+      <h4>— Phone</h4>
+      <span class="v">+39 345 284 19 06</span>
+      <p>I prefer email for a first introduction, but you're welcome to call Monday–Friday, 10:00–18:00 CET.</p>
+    </div>
+    <div class="c-info__block">
+      <h4>— Studio</h4>
+      <span class="v">Via del Parione 12</span>
+      <span class="v it">50123 Florence — Italy</span>
+      <p>Visits by appointment. The studio is in a 16th-century palazzo in the heart of historic Florence.</p>
+    </div>
+    <div class="c-info__block">
+      <h4>— Social</h4>
+      <span class="v it">@elisabetta.studio</span>
+      <span class="v">Instagram · Pinterest</span>
+    </div>
+    <div class="c-info__studio"></div>
+  </aside>
+
+  <div class="c-form reveal" id="formWrap">
+    <h2>Say <em>hello</em><br/>for the first time.</h2>
+    <p class="c-form__lede">This form is the first step. Once you send it, you'll get a personal email from me within 48 hours with a few first questions.</p>
+
+    <form class="contact__form" id="form">
+      <div class="field__row">
+        <div class="field">
+          <label>01 — Full names</label>
+          <input type="text" name="name" placeholder="What should we call you?" required>
+        </div>
+        <div class="field">
+          <label>02 — Email</label>
+          <input type="email" name="email" placeholder="where to reach you" required>
+        </div>
+      </div>
+      <div class="field__row">
+        <div class="field">
+          <label>03 — Phone (optional)</label>
+          <input type="text" name="phone" placeholder="+39…">
+        </div>
+        <div class="field">
+          <label>04 — Estimated date</label>
+          <input type="text" name="date" placeholder="e.g. June 2027">
+        </div>
+      </div>
+      <div class="field__row">
+        <div class="field">
+          <label>05 — Guest count</label>
+          <select name="guests">
+            <option>— select —</option>
+            <option>Up to 40</option>
+            <option>40 — 80</option>
+            <option>80 — 150</option>
+            <option>Over 150</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>06 — Service of interest</label>
+          <select name="pkg">
+            <option>— select —</option>
+            <option>Consulting</option>
+            <option>Full planning</option>
+            <option>Destination</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>07 — Preferred venue / region</label>
+        <input type="text" name="where" placeholder="Tuscany, Puglia, Lake Como…">
+      </div>
+      <div class="field">
+        <label>08 — Tell us a little about you</label>
+        <textarea name="message" placeholder="How did you meet? What kind of day do you picture?" rows="4"></textarea>
+      </div>
+      <button class="submit" type="submit">Send enquiry <span class="arrow">→</span></button>
+    </form>
+  </div>
+</section>
+
+<section class="map-strip">
+  <div class="map-strip__wrap">
+    <div>
+      <h2>The studio is in <em>Florence</em>.<br/>We work everywhere.</h2>
+      <p>Our home base is Florence, but every month we're on the road — between Puglia, the Lakes, the Amalfi Coast and the Dolomites — for site visits. We can meet you closer to home.</p>
+      <div class="map-strip__hours">
+        <div>Mon — Fri <em>10–18</em></div>
+        <div>Saturday <em>by appt.</em></div>
+        <div>Sunday <em>closed</em></div>
+        <div>Holidays <em>closed</em></div>
+      </div>
+    </div>
+    <div class="map-strip__map"></div>
+  </div>
+</section>
+
+<section class="c-close reveal">
+  <h2>We can't wait to <em>meet you.</em></h2>
+</section>
+
+<div data-foot></div>
+
+<script src="assets/partials.js"></script>
+<script src="assets/chrome.js"></script>
+</body>
+</html>
